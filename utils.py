@@ -8,7 +8,7 @@ def load(filepath, nrows=None):
     filename = os.path.basename(filepath)
 
     if 'features' in filename:
-        return pd.read_csv(filepath, index_col=0, header=[0, 1, 2])
+        return pd.read_csv(filepath, index_col=0, header=[0, 1, 2], nrows=nrows)
 
     if 'echonest' in filename:
         return pd.read_csv(filepath, index_col=0, header=[0, 1, 2])
