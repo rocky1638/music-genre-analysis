@@ -3,7 +3,7 @@ import ast
 import pandas as pd
 
 
-def load(filepath):
+def load(filepath, nrows=None):
 
     filename = os.path.basename(filepath)
 
@@ -17,7 +17,8 @@ def load(filepath):
         return pd.read_csv(filepath, index_col=0)
 
     if 'tracks' in filename:
-        tracks = pd.read_csv(filepath, index_col=0, header=[0, 1])
+        tracks = pd.read_csv(filepath,
+                             index_col=0, header=[0, 1], nrows=nrows)
 
         COLUMNS = [('track', 'tags'), ('album', 'tags'), ('artist', 'tags'),
                    ('track', 'genres'), ('track', 'genres_all')]
