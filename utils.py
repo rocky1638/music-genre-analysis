@@ -20,8 +20,7 @@ def load(filepath):
         tracks = pd.read_csv(filepath, index_col=0, header=[0, 1])
 
         COLUMNS = [('track', 'tags'), ('album', 'tags'), ('artist', 'tags'),
-                   ('track', 'genres'), ('track', 'genres_all'),
-                   ('track', 'genres_top')]
+                   ('track', 'genres'), ('track', 'genres_all')]
         for column in COLUMNS:
             tracks[column] = tracks[column].map(ast.literal_eval)
 
